@@ -1,26 +1,31 @@
-# 🚀 Cyber-Terminal Redirector
+# ⚡ PPH Quick Redirector
 
-A sleek, dark-themed splash screen featuring a "spinning code wheel" animation. This page mimics a terminal environment, cycling through programming snippets before automatically redirecting the user to a destination URL.
+A minimalist, high-performance loading page designed for a seamless user transition. It features a modern dark-themed UI and a smooth CSS-only spinner, optimized to redirect users in exactly 1 second.
 
-## 🛠 Features
+## 🚀 Overview
 
-* **Dark Mode Aesthetic:** GitHub/Matrix-inspired color palette.
-* **Dynamic Loader:** A CSS-animated spinning ring with randomized code snippets (e.g., `git push`, `void*`, `0x5F32`) appearing in the center.
-* **Auto-Redirect:** Automatically sends users to `https://pph.name.ng` after a set delay.
-* **Terminal Effects:** Includes a blinking command-line cursor and cycling status messages.
-* **Responsive:** Works on mobile and desktop browsers.
+This project serves as a lightweight "bridge" or "splash screen" for the **PPH** web ecosystem. It ensures that users have a visual cue that a page is loading before they are automatically moved to the destination.
 
-## 🚀 Quick Start
+## ✨ Features
 
-1.  **Clone or Copy:** Copy the code from `index.html`.
-2.  **Host:** Upload the file to your web server (GitHub Pages, Netlify, or your local hosting).
-3.  **Go:** Navigate to the file in your browser, and it will handle the rest.
+* **Fast Redirection:** Set to a crisp 1-second (1000ms) delay.
+* **Ultra-Lightweight:** Zero external dependencies or heavy images.
+* **Modern Dark Mode:** Uses a `#121212` background and system-native typography for a premium feel.
+* **Smooth Animation:** High-speed (0.6s) CSS spinner for a responsive look.
+
+## 🛠️ Installation
+
+1.  **Download** the `index.html` file.
+2.  **Upload** it to your web server or hosting platform (GitHub Pages, Netlify, Vercel, etc.).
+3.  Ensure the file is named `index.html` so it acts as the primary entry point.
 
 ## ⚙️ Configuration
 
-You can easily modify the behavior of the page by editing the variables in the `<script>` tag:
+If you need to change the destination or the timing, edit the `<script>` section at the bottom of the file:
 
-### Change Destination URL
-Find this line and swap the URL:
 ```javascript
-const destination = "[https://pph.name.ng](https://pph.name.ng)";
+// To change the destination URL:
+window.location.href = "[https://pph.name.ng](https://pph.name.ng)";
+
+// To change the speed (in milliseconds):
+}, 1000); // 1000ms = 1 second
