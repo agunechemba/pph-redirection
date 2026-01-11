@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Initializing...</title>
+    <title>Loading...</title>
     <style>
         :root {
-            --bg-color: #0a0a0c;
-            --accent-color: #00ff41; /* Classic Terminal Green */
-            --secondary-color: #003b00;
-            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --circle-active: #ffffff;
+            --text-color: #a0a0a0;
         }
 
         body {
@@ -21,111 +20,39 @@
             align-items: center;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace;
-            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
-        /* The Outer Spinning Ring */
-        .loader-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .spinning-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px solid var(--secondary-color);
-            border-top: 4px solid var(--accent-color);
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid var(--circle-active);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            box-shadow: 0 0 15px var(--secondary-color);
-        }
-
-        /* The Code Inside the Wheel */
-        .code-inner {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--accent-color);
-            text-align: center;
-            max-width: 80px;
-            word-wrap: break-word;
-            z-index: 2;
-            text-shadow: 0 0 5px var(--accent-color);
+            animation: spin 0.6s linear infinite;
+            margin-bottom: 12px;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            to { transform: rotate(360deg); }
         }
 
-        .status-text {
-            margin-top: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        /* Glitch effect for the text */
-        .glitch {
-            position: relative;
-        }
-        
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 1.2rem;
-            background: var(--accent-color);
-            margin-left: 5px;
-            animation: blink 0.8s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
+        p {
+            font-size: 13px;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="loader-container">
-        <div class="spinning-ring"></div>
-        <div class="code-inner" id="inner-code">
-            {...}
-        </div>
-    </div>
-
-    <div class="status-text">
-        Initializing PPH <span id="dynamic-status">Connection</span><span class="cursor"></span>
-    </div>
+    <div class="spinner"></div>
+    <p>Loading PPH...</p>
 
     <script>
-        const destination = "https://pph.name.ng";
-        const innerCodeSnippets = ["git push", "0x5F32", "void*", "npm i", "std::", "yield"];
-        const statusPhrases = ["Handshake", "Redirecting", "Fetching", "Auth"];
-        
-        const codeElement = document.getElementById('inner-code');
-        const statusElement = document.getElementById('dynamic-status');
-
-        // Cycle code inside the wheel
-        setInterval(() => {
-            codeElement.textContent = innerCodeSnippets[Math.floor(Math.random() * innerCodeSnippets.length)];
-        }, 600);
-
-        // Cycle status text
-        let statusIdx = 0;
-        setInterval(() => {
-            statusIdx = (statusIdx + 1) % statusPhrases.length;
-            statusElement.textContent = statusPhrases[statusIdx];
-        }, 1000);
-
-        // Perform redirect
+        // Redirect after exactly 1 second
         setTimeout(() => {
-            window.location.href = destination;
-        }, 4000);
+            window.location.href = "https://pph.name.ng";
+        }, 1000);
     </script>
 
 </body>
